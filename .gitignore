@@ -1,0 +1,27 @@
+# Raw data — contains real transaction history, never commit
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated artifacts
+data/db.sqlite3
+data/processed/*
+!data/processed/.gitkeep
+data/logs/*
+!data/logs/dead_letter/
+data/logs/dead_letter/*
+!data/logs/dead_letter/.gitkeep
+
+# Environment
+.env
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
