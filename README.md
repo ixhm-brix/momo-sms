@@ -15,7 +15,9 @@ categorizes it, stores it in SQLite, and visualizes it on a dashboard.
 
 ## Links
 
-- Architecture diagram: _TBD — Dana_
+- ## Links
+
+- Architecture diagram: [View on Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=momo-architecture&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1q6gy91KX5GwjKTgkdaWdNhcU8TGvulS4%26export%3Ddownload)
 - Scrum board: _TBD — Digne_
 
 ## Setup
@@ -51,7 +53,18 @@ tests/    Unit tests
 
 ## Architecture
 
-_TBD — Dana_
+![System Architecture](docs/architecture-diagram.png)
+
+The application transforms unstructured MTN MoMo SMS notifications into structured database entries to expose financial patterns[cite: 1]:
+
+1. **Move 1: Read (`data/raw/`):** Reads raw SMS text nodes from `momo.xml`[cite: 1].
+2. **Move 2: Extract & Transform (`etl/`):**
+   - **Parsing (`parse_xml.py`):** Loops over messages to extract sender metadata, timestamps, and message bodies[cite: 1].
+   - **Clean & Normalize (`clean_normalize.py`):** Extracts currency amounts (e.g., `"2,000 RWF"` to `2000`), normalizes timestamps, and unifies telephone formats[cite: 1].
+   - **Categorize (`categorize.py`):** Uses regex matching against text patterns to tag transfers, merchant pay, airtime, and cash-in/out[cite: 1].
+   - **Dead-Letter Handling:** Routes corrupted, unexpected, or promotional junk to `data/logs/dead_letter/` to prevent crashes[cite: 1].
+3. **Move 3: Store (`data/`):** Writes clean records into SQLite (`data/db.sqlite3`) so analytical summaries can be computed without re-reading the XML[cite: 1].
+4. **Move 4: Display (`web/`):** Aggregates insights into `data/processed/dashboard.json`, feeding the interactive web interface (`index.html` and `chart_handler.js`) to render charts and transaction metrics[cite: 1].
 
 ## Data model
 
