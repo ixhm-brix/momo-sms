@@ -66,14 +66,4 @@ The application transforms unstructured MTN MoMo SMS notifications into structur
 3. **Move 3: Store (`data/`):** Writes clean records into SQLite (`data/db.sqlite3`) so analytical summaries can be computed without re-reading the XML[cite: 1].
 4. **Move 4: Display (`web/`):** Aggregates insights into `data/processed/dashboard.json`, feeding the interactive web interface (`index.html` and `chart_handler.js`) to render charts and transaction metrics[cite: 1].
 
-## Data model
-
-_TBD — Lewis_
-
-## Frontend
-
-_TBD — Ian_
-
-## Process
-
 _TBD — Digne_
