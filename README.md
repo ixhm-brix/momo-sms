@@ -1,7 +1,7 @@
 # MoMo SMS Data Analysis
 
-Fullstack application that processes MTN MoMo SMS data from XML, cleans and
-categorizes it, stores it in SQLite, and visualizes it on a dashboard.
+Fullstack application that is used processes MTN MoMo SMS data from XML, cleans and
+categorizes it, stores it in SQLite, and easily visualizes it on a dashboard.
 
 ## Team
 
