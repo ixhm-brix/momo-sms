@@ -65,5 +65,3 @@ The application transforms unstructured MTN MoMo SMS notifications into structur
    - **Dead-Letter Handling:** Routes corrupted, unexpected, or promotional junk to `data/logs/dead_letter/` to prevent crashes[cite: 1].
 3. **Move 3: Store (`data/`):** Writes clean records into SQLite (`data/db.sqlite3`) so analytical summaries can be computed without re-reading the XML[cite: 1].
 4. **Move 4: Display (`web/`):** Aggregates insights into `data/processed/dashboard.json`, feeding the interactive web interface (`index.html` and `chart_handler.js`) to render charts and transaction metrics[cite: 1].
-
-_TBD — Digne_
