@@ -17,7 +17,7 @@ categorizes it, stores it in SQLite, and easily visualizes it on a dashboard.
 
 - ## Links
 
-- Architecture diagram: [View on Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=momo-architecture&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1q6gy91KX5GwjKTgkdaWdNhcU8TGvulS4%26export%3Ddownload)
+- Architecture diagram: [View on Miro]https://miro.com/app/board/uXjVHpncxSU=/)
 - Trello board: [The Trello Board](https://trello.com/invite/b/6a9acac8c426fce02848749d/ATTI69aed775d344ef2fae688f4cdcccac6a69035B78/my-trello-board).
 
 ## Setup
