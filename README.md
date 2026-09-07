@@ -7,11 +7,11 @@ categorizes it, stores it in SQLite, and easily visualizes it on a dashboard.
 
 | Name | Role |
 |---|---|
-| Fabrice | Repo & scaffolding |
-| Lewis | Data & database |
-| Ian | Frontend & data contract |
-| Dana | Architecture & docs |
-| Digne | Process & board |
+| Ishimwe Fabrice | Repo & scaffolding |
+| Bagabo Lewis | Data & database |
+|Kamuzinzi Ian | Frontend & data contract |
+|Keza Dana | Architecture & docs |
+| Nyange Digne | Process & board |
 
 ## Links
 
