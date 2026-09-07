@@ -17,7 +17,7 @@ categorizes it, stores it in SQLite, and easily visualizes it on a dashboard.
 
 - ## Links
 
-- Architecture diagram: [View on Miro]https://miro.com/app/board/uXjVHpncxSU=/)
+- Architecture diagram: [View on Miro]https://miro.com/app/board/uXjVHpncxSU=/?share_link_id=874764227081)
 - Trello board: [The Trello Board](https://trello.com/invite/b/6a9acac8c426fce02848749d/ATTI69aed775d344ef2fae688f4cdcccac6a69035B78/my-trello-board).
 
 ## Setup
