@@ -102,7 +102,7 @@ The database `momo_sms_db` has six tables:
 
 ### Relationships
 
-| Relationship | Cardinality | Enforced by |
+| Relationship | Cardinality ratio | Enforced by |
 |---|---|---|
 | `transaction_categories` → `transactions` | 1:M | `transactions.category_id` NOT NULL FK |
 | `sms_messages` → `transactions` | 1:1 (an SMS yields at most one transaction) | `transactions.sms_id` NOT NULL FK + UNIQUE |
