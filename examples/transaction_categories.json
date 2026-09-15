@@ -1,0 +1,8 @@
+{
+    "category_id": 1,
+    "category_code": "INCOMING_MONEY",
+    "category_name": "Incoming Money",
+    "direction": "CREDIT",
+    "sms_pattern": "^You have received",
+    "description": "Money received from another MoMo user"
+}
