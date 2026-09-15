@@ -1,0 +1,13 @@
+{
+    "transaction_id": 1,
+    "external_txn_id": "76662021700",
+    "sms_id": 1,
+    "category_id": 1,
+    "amount": 2000,
+    "fee": 0,
+    "balance_after": 2000,
+    "status": "SUCCESS",
+    "token": null,
+    "message": null,
+    "transaction_date": "2024-05-10 16:30:51"
+}

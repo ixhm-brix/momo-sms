@@ -1,0 +1,9 @@
+{
+    "log_id": 1,
+    "sms_id": 1,
+    "transaction_id": 1,
+    "log_level": "INFO",
+    "event_type": "TRANSACTION_PARSED",
+    "message": "Incoming money transaction successfully parsed.",
+    "created_at": "2024-05-10 16:30:51"
+}

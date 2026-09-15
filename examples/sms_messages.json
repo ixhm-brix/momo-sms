@@ -1,0 +1,11 @@
+{
+    "sms_id": 1,
+    "protocol": 0,
+    "address": "M-Money",
+    "msg_type": 1,
+    "date_ms": 1715351458724,
+    "date_sent_ms": 1715351451000,
+    "readable_date": "10 May 2024 4:30:58 PM",
+    "body": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Your new balance:2000 RWF. Financial Transaction Id: 76662021700.",
+    "service_center": "+250788110381"
+}
