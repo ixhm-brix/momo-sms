@@ -1,0 +1,178 @@
+{
+  "description": "MoMo SMS Data Processing System JSON examples",
+  "purpose": "Examples showing how the relational entities from the ERD can be represented and nested in JSON API responses.",
+
+  "entities": {
+    "users": {
+      "user_id": 1,
+      "full_name": "MoMo Customer",
+      "phone_number": "250788123456",
+      "masked_phone": "250788***456",
+      "merchant_code": null,
+      "account_number": "36521838",
+      "user_type": "CUSTOMER",
+      "created_at": "2024-06-12T17:50:00"
+    },
+
+    "sms_messages": {
+      "sms_id": 1,
+      "protocol": 0,
+      "address": "M-Money",
+      "msg_type": 1,
+      "date_ms": 1718207557353,
+      "date_sent_ms": 1718207550000,
+      "readable_date": "12 Jun 2024 5:52:37 PM",
+      "body": "*165*S*1000 RWF transferred to Alex Doe (250791666666) from 36521838 at 2024-06-12 17:52:30 . Fee was: 20 RWF. New balance: 6470 RWF.",
+      "service_center": "+250788110381",
+      "imported_at": "2024-06-12T17:53:00"
+    },
+
+    "transaction_categories": {
+      "category_id": 1,
+      "category_code": "P2P_TRANSFER",
+      "category_name": "Person-to-person transfer",
+      "direction": "DEBIT",
+      "sms_pattern": "*165*S*",
+      "description": "Transfer of money from one mobile money customer to another."
+    },
+
+    "transactions": {
+      "transaction_id": 1,
+      "external_txn_id": null,
+      "sms_id": 1,
+      "category_id": 1,
+      "amount": 1000.0,
+      "fee": 20.0,
+      "balance_after": 6470.0,
+      "currency": "RWF",
+      "status": "SUCCESS",
+      "token": null,
+      "message": null,
+      "transaction_date": "2024-06-12T17:52:30",
+      "created_at": "2024-06-12T17:53:00"
+    },
+
+    "transaction_participants": {
+      "transaction_id": 1,
+      "participants": [
+        {
+          "user_id": 1,
+          "role": "SENDER"
+        },
+        {
+          "user_id": 2,
+          "role": "RECEIVER"
+        }
+      ]
+    },
+
+    "system_logs": {
+      "log_id": 1,
+      "sms_id": 1,
+      "transaction_id": 1,
+      "log_level": "INFO",
+      "event_type": "TRANSACTION_PROCESSED",
+      "message": "MoMo transfer parsed and stored successfully.",
+      "created_at": "2024-06-12T17:53:00"
+    }
+  },
+
+  "complex_transaction_example": {
+    "transaction_id": 1,
+    "external_txn_id": null,
+    "amount": 1000.0,
+    "fee": 20.0,
+    "balance_after": 6470.0,
+    "currency": "RWF",
+    "status": "SUCCESS",
+    "token": null,
+    "message": null,
+    "transaction_date": "2024-06-12T17:52:30",
+    "created_at": "2024-06-12T17:53:00",
+
+    "category": {
+      "category_id": 1,
+      "category_code": "P2P_TRANSFER",
+      "category_name": "Person-to-person transfer",
+      "direction": "DEBIT"
+    },
+
+    "source_sms": {
+      "sms_id": 1,
+      "address": "M-Money",
+      "readable_date": "12 Jun 2024 5:52:37 PM",
+      "service_center": "+250788110381",
+      "body": "*165*S*1000 RWF transferred to Alex Doe (250791666666) from 36521838 at 2024-06-12 17:52:30 . Fee was: 20 RWF. New balance: 6470 RWF."
+    },
+
+    "participants": [
+      {
+        "role": "SENDER",
+        "user": {
+          "user_id": 1,
+          "full_name": "MoMo Customer",
+          "phone_number": "250788123456",
+          "masked_phone": "250788***456",
+          "account_number": "36521838",
+          "user_type": "CUSTOMER"
+        }
+      },
+      {
+        "role": "RECEIVER",
+        "user": {
+          "user_id": 2,
+          "full_name": "Alex Doe",
+          "phone_number": "250791666666",
+          "masked_phone": "250791***666",
+          "account_number": null,
+          "user_type": "CUSTOMER"
+        }
+      }
+    ],
+
+    "logs": [
+      {
+        "log_id": 1,
+        "log_level": "INFO",
+        "event_type": "TRANSACTION_PROCESSED",
+        "message": "MoMo transfer parsed and stored successfully.",
+        "created_at": "2024-06-12T17:53:00"
+      }
+    ]
+  },
+
+  "api_response_example": {
+    "success": true,
+    "data": {
+      "transaction": {
+        "transaction_id": 1,
+        "amount": 1000.0,
+        "fee": 20.0,
+        "balance_after": 6470.0,
+        "currency": "RWF",
+        "status": "SUCCESS",
+        "transaction_date": "2024-06-12T17:52:30",
+
+        "category": {
+          "category_id": 1,
+          "code": "P2P_TRANSFER",
+          "name": "Person-to-person transfer",
+          "direction": "DEBIT"
+        },
+
+        "sender": {
+          "user_id": 1,
+          "full_name": "MoMo Customer",
+          "account_number": "36521838",
+          "phone_number": "250788123456"
+        },
+
+        "receiver": {
+          "user_id": 2,
+          "full_name": "Alex Doe",
+          "phone_number": "250791666666"
+        }
+      }
+    }
+  }
+}
