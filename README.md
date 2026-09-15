@@ -7,17 +7,17 @@ categorizes it, stores it in SQLite, and easily visualizes it on a dashboard.
 
 | Name | Role |
 |---|---|
-| Fabrice | Repo & scaffolding |
-| Lewis | Data & database |
-| Ian | Frontend & data contract |
-| Dana | Architecture & docs |
-| Digne | Process & board |
+| Ishimwe Fabrice | Repo & scaffolding |
+| Bagabo Lewis | Data & database |
+|Kamuzinzi Ian | Frontend & data contract |
+|Keza Dana | Architecture & docs |
+| Nyange Digne | Process & board |
 
 ## Links
 
 - ## Links
 
-- Architecture diagram: [View on Draw.io](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=momo-architecture&dark=auto#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1q6gy91KX5GwjKTgkdaWdNhcU8TGvulS4%26export%3Ddownload)
+- Architecture diagram: [View on Miro]https://miro.com/app/board/uXjVHpncxSU=/?share_link_id=874764227081)
 - Trello board: [The Trello Board](https://trello.com/invite/b/6a9acac8c426fce02848749d/ATTI69aed775d344ef2fae688f4cdcccac6a69035B78/my-trello-board).
 
 ## Setup
@@ -65,15 +65,3 @@ The application transforms unstructured MTN MoMo SMS notifications into structur
    - **Dead-Letter Handling:** Routes corrupted, unexpected, or promotional junk to `data/logs/dead_letter/` to prevent crashes[cite: 1].
 3. **Move 3: Store (`data/`):** Writes clean records into SQLite (`data/db.sqlite3`) so analytical summaries can be computed without re-reading the XML[cite: 1].
 4. **Move 4: Display (`web/`):** Aggregates insights into `data/processed/dashboard.json`, feeding the interactive web interface (`index.html` and `chart_handler.js`) to render charts and transaction metrics[cite: 1].
-
-## Data model
-
-_TBD — Lewis_
-
-## Frontend
-
-_TBD — Ian_
-
-## Process
-
-_TBD — Digne_
