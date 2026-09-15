@@ -81,3 +81,40 @@ CREATE TABLE IF NOT EXISTS system_logs (
     CONSTRAINT fk_logs_sms FOREIGN KEY (sms_id) REFERENCES sms_messages(sms_id),
     CONSTRAINT fk_logs_transaction FOREIGN KEY (transaction_id) REFERENCES transactions(transaction_id)
 ) ENGINE=InnoDB;
+-- 1. INTEGRITY & SECURITY CONSTRAINTS
+-- Phone format check (Rwanda format)
+ALTER TABLE users
+    ADD CONSTRAINT chk_user_phone_format 
+        CHECK (phone_number IS NULL OR phone_number REGEXP '^[0-9]{10,12}$');
+
+-- Ensure financial balance cannot be negative
+ALTER TABLE transactions
+    ADD CONSTRAINT chk_tx_non_negative_balance 
+        CHECK (balance_after IS NULL OR balance_after >= 0.00);
+
+-- Enforce standardized 3-letter currency code (ISO 4217)
+ALTER TABLE transactions
+    ADD CONSTRAINT chk_tx_currency_format 
+        CHECK (currency REGEXP '^[A-Z]{3}$');
+
+
+-- 2. PERFORMANCE & RETRIEVAL INDEXES
+-- Rapid phone number lookup for sender/receiver identification
+CREATE INDEX idx_users_phone 
+    ON users (phone_number);
+
+-- Chronological sorting for statements, audits, and reconciliation
+CREATE INDEX idx_tx_date 
+    ON transactions (transaction_date DESC);
+
+-- Compound index for category and status filtering
+CREATE INDEX idx_tx_category_status 
+    ON transactions (category_id, status);
+
+-- Index for transaction participant lookups
+CREATE INDEX idx_participants_user 
+    ON transaction_participants (user_id);
+
+-- Operational debugging: filter system logs by severity tier and time
+CREATE INDEX idx_logs_level_created 
+    ON system_logs (log_level, created_at DESC);
