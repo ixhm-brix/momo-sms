@@ -1,0 +1,44 @@
+{
+    "transaction_id": 1,
+    "external_txn_id": "76662021700",
+    "amount": 2000,
+    "fee": 0,
+    "balance_after": 2000,
+    "status": "SUCCESS",
+    "transaction_date": "2024-05-10 16:30:51",
+
+    "category": {
+        "category_id": 1,
+        "category_code": "INCOMING_MONEY",
+        "category_name": "Incoming Money",
+        "direction": "CREDIT"
+    },
+
+    "participants": [
+        {
+            "role": "SENDER",
+            "user": {
+                "user_id": 2,
+                "full_name": "Jane Smith",
+                "masked_phone": "*********013",
+                "user_type": "INDIVIDUAL"
+            }
+        },
+        {
+            "role": "RECEIVER",
+            "user": {
+                "user_id": 1,
+                "full_name": "Abebe Chala CHEBUDIE",
+                "masked_phone": "*********036",
+                "user_type": "ACCOUNT_OWNER"
+            }
+        }
+    ],
+
+    "sms": {
+        "sms_id": 1,
+        "address": "M-Money",
+        "readable_date": "10 May 2024 4:30:58 PM",
+        "body": "You have received 2000 RWF from Jane Smith (*********013) on your mobile money account at 2024-05-10 16:30:51. Your new balance:2000 RWF. Financial Transaction Id: 76662021700."
+    }
+}
