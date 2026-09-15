@@ -118,3 +118,4 @@ CREATE INDEX idx_participants_user
 -- Operational debugging: filter system logs by severity tier and time
 CREATE INDEX idx_logs_level_created 
     ON system_logs (log_level, created_at DESC);
+    -- Verification tests and integrity validation completed by Dana
