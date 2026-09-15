@@ -65,3 +65,33 @@ The application transforms unstructured MTN MoMo SMS notifications into structur
    - **Dead-Letter Handling:** Routes corrupted, unexpected, or promotional junk to `data/logs/dead_letter/` to prevent crashes[cite: 1].
 3. **Move 3: Store (`data/`):** Writes clean records into SQLite (`data/db.sqlite3`) so analytical summaries can be computed without re-reading the XML[cite: 1].
 4. **Move 4: Display (`web/`):** Aggregates insights into `data/processed/dashboard.json`, feeding the interactive web interface (`index.html` and `chart_handler.js`) to render charts and transaction metrics[cite: 1].
+
+## Database Design
+
+The MoMo SMS system uses a relational database with six main entities:
+
+- `users` – stores user information.
+- `sms_messages` – stores imported SMS data.
+- `transaction_categories` – stores transaction categories.
+- `transactions` – stores financial transactions.
+- `transaction_participants` – links users to transactions.
+- `system_logs` – records system events.
+
+### JSON Data Modeling
+
+JSON examples are available in `examples/json_schemas.json`.
+
+The JSON models show how related SQL records can be nested into API responses. For example, a transaction can include its category and participants with their user information.
+
+### Project Files
+
+- ERD: `docs/erd_diagram.png`
+- Database setup: `database/database_setup.sql`
+- JSON models: `examples/json_schemas.json`
+- CRUD tests: `database/crud_tests.sql`
+
+### SQL-to-JSON Mapping
+
+The MoMo database stores information in normalized relational tables to reduce duplication and maintain referential integrity. When the data is exposed through an API, related SQL rows can be combined into nested JSON objects. A transaction row provides fields such as amount, fee, currency, balance and transaction date. The category_id foreign key is resolved using the transaction_categories table and represented as a nested category object. Users participating in a transaction are connected through the transaction_participants junction table and are represented as an array of participant objects containing each user's role and information. The related SMS record can also be nested as source_sms.
+
+SQL INT, BIGINT and DECIMAL values are represented as JSON numbers. SQL VARCHAR, CHAR, TEXT and DATETIME values are represented as JSON strings, while SQL NULL becomes JSON null. One-to-many and many-to-many relationships are represented using JSON arrays. This structure allows the normalized relational database to remain efficient while presenting convenient, readable API responses to client applications.
