@@ -5,7 +5,7 @@ import time
 
 def linear_search(transactions, target_id):
     for transaction in transactions:
-        if transaction["transaction_id"] == target_id:
+        if transaction["id"] == target_id:
             return transaction
     return None
 
@@ -30,19 +30,27 @@ def main():
         return
 
     filename = sys.argv[1]
-    transactions = load_transactions(filename)
+
+    try:
+        transactions = load_transactions(filename)
+    except FileNotFoundError:
+        print(f"File not found: {filename}")
+        return
+    except json.JSONDecodeError:
+        print(f"Invalid JSON file: {filename}")
+        return
 
     if len(transactions) < 20:
         print("At least 20 records are required.")
         return
 
     transaction_dict = {
-        transaction["transaction_id"]: transaction
+        transaction["id"]: transaction
         for transaction in transactions
     }
 
     target_ids = [
-        transaction["transaction_id"]
+        transaction["id"]
         for transaction in transactions[:20]
     ]
 
